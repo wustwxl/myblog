@@ -1,0 +1,76 @@
+server:
+  port: 8001
+  
+mybatis:
+  type-aliases-package: com.wust.entity                     # 所有Entity别名类所在包
+  mapper-locations:
+  - classpath:mapper/**/*.xml                       # mapper映射文件
+
+spring:
+   application:
+    name: blog-content                                      # 对外暴露的微服务名称
+
+   datasource:
+    type: com.alibaba.druid.pool.DruidDataSource            # 当前数据源操作类型
+    driver-class-name: org.gjt.mm.mysql.Driver              # mysql驱动包
+    url: jdbc:mysql://localhost:3306/myblog?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: 123456
+
+    dbcp2:
+      min-idle: 5                                           # 数据库连接池的最小维持连接数
+      initial-size: 5                                       # 初始化连接数
+      max-total: 5                                          # 最大连接数
+      max-wait-millis: 200                                  # 等待连接获取的最大超时时间
+
+    thymeleaf:
+          encoding: utf-8
+          cache: false   #开发时关闭缓存,不然没法看到实时页面
+          mode: HTML5    #LEGACYHTML5
+          suffix: .html
+          check-template-location: true
+          content-type: text/html
+
+    pagehelper:
+     helperDialect: mysql
+     reasonable: true
+     supportMethodsArguments: true
+     params: count=countSql
+
+eureka:
+  client: #客户端注册进eureka服务列表内
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+      # defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+  instance:
+    instance-id: blog-content8001
+    prefer-ip-address: true     #访问路径可以显示IP地址
+
+info:
+  app.name: wust-blog
+  company.name: wxl
+
+
+#最大获取文章条数
+MAX_POSTS: 9999
+
+#最大页码
+MAX_PAGE: 100
+
+#文章最多可以输入的文字数
+MAX_TEXT_COUNT: 200000
+
+#文章标题最多可以输入的文字个数
+MAX_TITLE_COUNT: 200
+
+#点击次数超过多少更新到数据库
+HIT_EXCEED: 10
+
+#上传文件最大1M
+MAX_FILE_SIZE: 1048576
+
+#成功返回
+SUCCESS_RESULT: SUCCESS
+
+#同一篇文章在2个小时内无论点击多少次只算一次阅读
+HITS_LIMIT_TIME: 7200

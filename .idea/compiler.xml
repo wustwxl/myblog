@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="blog-api" />
+        <module name="blog-consumer-80" />
+        <module name="blog-eureka-7001" />
+        <module name="blog-hystrix-dashboard" />
+        <module name="blog-provider-comment-8011" />
+        <module name="blog-provider-content-8001" />
+        <module name="mybatis-generator" />
+        <module name="other-blog" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="blog-api" target="1.8" />
+      <module name="blog-consumer-80" target="1.8" />
+      <module name="blog-eureka-7001" target="1.8" />
+      <module name="blog-eureka-client-7001" target="1.8" />
+      <module name="blog-hystrix-dashboard" target="1.8" />
+      <module name="blog-provider-comment-8011" target="1.8" />
+      <module name="blog-provider-content-8001" target="1.8" />
+      <module name="mybatis-generator" target="1.8" />
+      <module name="myblog" target="1.8" />
+      <module name="other-blog" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
